@@ -4,6 +4,8 @@
 
 - 网址：https://violet-xinyu.github.io/
 - 仓库：https://github.com/violet-xinyu/violet-xinyu.github.io
+- 状态：**已部署上线**（2026-11-20），当前为占位测试片，待换真实作品
+- Pages 首次部署约需 30-60 秒；推送后若暂时是默认页，稍等刷新即可
 
 ## 技术架构
 
@@ -39,7 +41,13 @@
    - 第 1 部还要同步改 `index.html` 里 `<source id="srcMp4">` 的默认地址和 `poster`。
 4. **改文案**：`index.html` 里「占位影片」「测试片」「非本人作品」等说明文字，换成真实作品说明；
    `app.js` 顶部注释、`index.html` 的 `works-footnote`、播放器提示与兜底条说明也要一起改。
-5. **推送**：`git add . && git commit -m "更新真实作品" && git push origin main`，等 Pages 构建完成后刷新。
+5. **推送**：本机未常驻 git 凭据，推送用临时 token（见下），等 Pages 构建完成后刷新：
+   ```bash
+   git add . && git commit -m "更新真实作品"
+   URL="https://violet-xinyu:<TOKEN>@github.com/violet-xinyu/violet-xinyu.github.io.git"
+   git -c credential.helper= push "$URL" main
+   ```
+   其中 `<TOKEN>` 是临时生成、用完即删的 GitHub personal access token（勾 `repo` 权限）。
 
 ## 踩过的坑（务必避免重复）
 
