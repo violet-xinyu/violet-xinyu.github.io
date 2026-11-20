@@ -2,250 +2,548 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0B0B0D">
-<meta name="description" content="刘心语 Violet Liu · 影视制片 / 后期统筹 / 国际发行作品集。中国传媒大学新闻与传播硕士，2027 届。">
-<title>刘心语 Violet Liu · 影视制片作品集</title>
-<link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>刘心语 · 导演 / 编导 / 制片 · 作品集</title>
+<meta name="description" content="刘心语（Violet Liu）作品集：纪录片、剧情短片、长片企划与制片。中国传媒大学新闻与传播硕士，浙江传媒学院广播电视学本科，台湾艺术大学电影学系交换。">
+<style>
+  :root{
+    --bg:#0b0a09;
+    --bg-soft:#121110;
+    --line:rgba(240,232,218,.13);
+    --ink:#f2ece1;
+    --ink-dim:#a29a8d;
+    --accent:#d8a24a;
+    --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif;
+    --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    --max:1200px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  /* nav */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(18px,5vw,52px);mix-blend-mode:difference}
+  .nav .mark{font-family:var(--serif);font-size:15px;letter-spacing:.2em}
+  .nav .links{display:flex;gap:24px;font-size:12.5px;letter-spacing:.1em;color:#fff}
+  .nav .links a{opacity:.62;transition:opacity .3s}
+  .nav .links a:hover{opacity:1}
+  @media(max-width:760px){.nav .links{display:none}}
+
+  /* hero */
+  .hero{position:relative;height:100svh;min-height:620px;display:flex;align-items:flex-end;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:url("assets/posters/punk-pilgrim.jpg") 62% 28%/cover no-repeat;filter:brightness(.7) contrast(1.05) saturate(.85);animation:drift 30s ease-in-out infinite alternate}
+  @keyframes drift{to{transform:scale(1.05) translateX(-1%)}}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,10,9,.95) 0%,rgba(11,10,9,.86) 34%,rgba(11,10,9,.4) 60%,rgba(11,10,9,.06) 84%),linear-gradient(to top,var(--bg) 2%,rgba(11,10,9,.5) 28%,transparent 62%)}
+  .hero-inner{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:0 clamp(18px,5vw,52px) clamp(50px,8vh,92px)}
+  .kicker{font-size:11.5px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;margin-bottom:22px;opacity:0;animation:up .9s .15s ease forwards}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,6.6vw,82px);line-height:1.06;letter-spacing:.02em;opacity:0;animation:up 1s .3s ease forwards}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero .sub{margin-top:26px;max-width:560px;color:#d3cabb;font-size:15px;line-height:1.9;opacity:0;animation:up 1s .5s ease forwards}
+  .hero .meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:9px 30px;font-size:11.5px;letter-spacing:.14em;color:rgba(240,232,218,.58);opacity:0;animation:up 1s .68s ease forwards}
+  @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .scroll-hint{position:absolute;bottom:44px;right:clamp(18px,5vw,52px);z-index:3;font-size:10.5px;letter-spacing:.34em;color:rgba(240,232,218,.42);writing-mode:vertical-rl}
+  @media(max-width:760px){.scroll-hint{display:none}.hero-bg{background-position:60% 22%}.hero::after{background:linear-gradient(to top,var(--bg) 6%,rgba(11,10,9,.88) 40%,rgba(11,10,9,.45) 74%,rgba(11,10,9,.2) 100%)}}
+
+  /* sections */
+  section{padding:clamp(64px,10vh,120px) clamp(18px,5vw,52px);scroll-margin-top:64px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-bottom:22px;margin-bottom:clamp(30px,5vh,52px);border-bottom:1px solid var(--line)}
+  .sec-head .left{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .num{font-family:var(--serif);font-size:11.5px;letter-spacing:.2em;color:var(--accent);padding-top:6px}
+  .sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.2vw,40px);letter-spacing:.05em}
+  .sec-head .en{font-size:11px;letter-spacing:.3em;color:var(--ink-dim);text-transform:uppercase;padding-bottom:4px}
+  .sec-head .note{font-size:12px;color:var(--ink-dim);letter-spacing:.05em;text-align:right;max-width:300px;line-height:1.7}
+
+  /* films */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(24px,4vw,50px)}
+  @media(max-width:820px){.grid{grid-template-columns:1fr}}
+  .film{cursor:pointer}
+  .thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000}
+  .thumb img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .6s;filter:grayscale(.15) brightness(.9)}
+  .film:hover .thumb img{transform:scale(1.04);filter:grayscale(0) brightness(1)}
+  .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent 52%)}
+  .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;z-index:2;backdrop-filter:blur(2px);transition:.4s}
+  .play svg{width:12px;height:14px;fill:#fff;margin-left:3px}
+  .film:hover .play{background:rgba(216,162,74,.92);border-color:transparent}
+  .badge{position:absolute;z-index:2;font-size:10.5px;letter-spacing:.12em;padding:4px 8px;border:1px solid rgba(255,255,255,.26);background:rgba(0,0,0,.36);color:#eae4d9}
+  .badge.dur{right:11px;bottom:11px}
+  .badge.kind{left:11px;top:11px}
+  .film-body{padding-top:18px;display:flex;gap:14px;align-items:flex-start}
+  .film-body .idx{font-family:var(--serif);font-size:11.5px;color:var(--accent);letter-spacing:.1em;padding-top:8px;min-width:24px}
+  .film h3{font-family:var(--serif);font-weight:400;font-size:clamp(19px,2vw,24px);letter-spacing:.03em;line-height:1.4}
+  .film .role{margin-top:7px;font-size:11.5px;letter-spacing:.14em;color:var(--accent)}
+  .film .desc{margin-top:11px;font-size:14px;color:var(--ink-dim);line-height:1.85}
+  .film .award{margin-top:10px;font-size:11.5px;color:#cfc4ae;letter-spacing:.04em;border-left:2px solid rgba(216,162,74,.5);padding-left:9px}
+  .portrait .thumb{aspect-ratio:4/5}
+  @media(max-width:820px){.portrait .thumb{aspect-ratio:3/4;max-height:70vh}}
+
+  /* feature */
+  .feature{display:block;position:relative;overflow:hidden;border:1px solid var(--line);background:#000}
+  .feature img{width:100%;aspect-ratio:21/9;object-fit:cover;opacity:.78;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),opacity .6s;filter:saturate(.95)}
+  .feature:hover img{transform:scale(1.03);opacity:.92}
+  .feature .veil{position:absolute;inset:0;background:linear-gradient(to right,rgba(8,7,6,.94) 0%,rgba(8,7,6,.72) 40%,rgba(8,7,6,.1) 78%)}
+  .feature .txt{position:absolute;left:clamp(20px,4vw,50px);bottom:clamp(20px,4vw,46px);right:clamp(20px,4vw,50px);max-width:640px}
+  .feature .tag{font-size:11px;letter-spacing:.28em;color:var(--accent);text-transform:uppercase}
+  .feature h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,4vw,50px);line-height:1.2;margin-top:14px;letter-spacing:.03em}
+  .feature p{margin-top:14px;font-size:14.5px;color:#cfc6b6;line-height:1.85;max-width:560px}
+  .feature .go{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-size:12.5px;letter-spacing:.2em;color:var(--act, #fff);border-bottom:1px solid rgba(255,255,255,.32);padding-bottom:6px}
+  .feature .go span{transition:transform .35s}
+  .feature:hover .go span{transform:translateX(6px)}
+  @media(max-width:820px){
+    .feature img{aspect-ratio:4/3}
+    .feature .veil{background:linear-gradient(to top,rgba(8,7,6,.9),rgba(8,7,6,.12) 70%)}
+    .feature .txt{position:relative;left:auto;right:auto;bottom:auto;max-width:none;padding:24px 22px 26px;background:var(--bg)}
+    .feature p{font-size:14px}
+  }
+
+  /* decks */
+  .decks{display:grid;gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .deck{background:var(--bg);padding:clamp(22px,3.2vw,36px) 0;display:grid;grid-template-columns:70px 1.1fr 1fr;gap:clamp(16px,3vw,40px);align-items:start;transition:background .4s}
+  .deck:hover{background:var(--bg-soft)}
+  .deck .no{font-family:var(--serif);font-size:12px;letter-spacing:.14em;color:var(--ink-dim)}
+  .deck h3{font-family:var(--serif);font-weight:400;font-size:clamp(19px,2.2vw,26px);line-height:1.4;letter-spacing:.03em}
+  .deck .en-title{display:block;margin-top:8px;font-size:11px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase}
+  .deck .desc{font-size:14px;color:var(--ink-dim);line-height:1.9}
+  .deck .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px}
+  .deck .tags span{font-size:10.5px;letter-spacing:.1em;color:#cfc6b7;border:1px solid var(--line);padding:3px 8px}
+  @media(max-width:820px){.deck{grid-template-columns:1fr;gap:10px}}
+
+  /* card (article / audio) */
+  .words{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3.5vw,44px)}
+  @media(max-width:820px){.words{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);padding:clamp(22px,3vw,32px);background:linear-gradient(160deg,rgba(255,255,255,.026),transparent 60%);display:flex;flex-direction:column;transition:border-color .4s,transform .4s}
+  .card:hover{border-color:rgba(216,162,74,.45);transform:translateY(-3px)}
+  .card .type{font-size:10.5px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase}
+  .card h3{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.1vw,25px);margin-top:13px;line-height:1.42}
+  .card p{margin-top:11px;font-size:14px;color:var(--ink-dim);line-height:1.9}
+  .card .foot{margin-top:auto;padding-top:20px;font-size:12px;letter-spacing:.08em;color:var(--ink-dim)}
+  .card .foot a{color:var(--accent);border-bottom:1px solid rgba(216,162,74,.4);padding-bottom:2px}
+
+  /* awards */
+  #awards{background:var(--bg-soft)}
+  .awards{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(24px,4vw,56px)}
+  .award-row{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .award-row .yr{font-family:var(--serif);font-size:12px;color:var(--accent);letter-spacing:.1em}
+  .award-row .a-name{font-size:14.5px;line-height:1.6}
+  .award-row .a-work{display:block;margin-top:4px;font-size:12px;color:var(--ink-dim);letter-spacing:.04em}
+  @media(max-width:820px){.awards{grid-template-columns:1fr}}
+
+  /* about */
+  #about{border-top:1px solid var(--line)}
+  .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,6vw,76px)}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+  .about h2{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3vw,36px);line-height:1.55;letter-spacing:.03em}
+  .about h2 em{font-style:normal;color:var(--accent)}
+  .about p{margin-top:20px;color:var(--ink-dim);font-size:14.5px;line-height:2;max-width:540px}
+  .cred{margin-top:36px;display:grid;gap:22px}
+  .cred dt{font-size:10.5px;letter-spacing:.28em;color:var(--accent)}
+  .cred dd{margin-top:8px;font-size:13.5px;line-height:1.95;color:#ded5c7}
+  .contact{display:flex;flex-direction:column}
+  .contact dt{font-size:10.5px;letter-spacing:.28em;color:var(--accent);padding-top:16px}
+  .contact dd{font-size:14.5px;padding:6px 0 14px;border-bottom:1px solid var(--line);color:#ded5c7}
+  /* statement / entries */
+  .statement{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(26px,5vw,64px);align-items:center}
+  @media(max-width:820px){.statement{grid-template-columns:1fr;gap:26px}}
+  .statement .label{font-size:11px;letter-spacing:.34em;color:var(--accent)}
+  .statement h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5vw,62px);line-height:1.15;margin-top:18px;letter-spacing:.03em}
+  .statement h2 .dot{color:var(--accent)}
+  .statement-note{margin-top:20px;font-size:14px;color:var(--ink-dim);line-height:1.95;max-width:440px}
+  .entries{display:grid;gap:14px}
+  .entry{position:relative;display:block;border:1px solid var(--line);padding:20px 54px 20px 22px;background:linear-gradient(150deg,rgba(255,255,255,.035),transparent 62%);transition:border-color .4s,transform .4s}
+  .entry:hover{border-color:rgba(216,162,74,.5);transform:translateY(-2px)}
+  .entry .lbl{font-size:10px;letter-spacing:.26em;color:var(--accent)}
+  .entry .ttl{display:block;margin-top:10px;font-family:var(--serif);font-size:19px;letter-spacing:.04em}
+  .entry .sub{display:block;margin-top:7px;font-size:12.5px;color:var(--ink-dim);line-height:1.7}
+  .entry .arr{position:absolute;right:22px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:16px;transition:transform .35s}
+  .entry:hover .arr{transform:translate(4px,-50%)}
+
+  /* wordmark */
+  .wordmark{overflow:hidden;line-height:.74;margin-top:clamp(20px,4vh,44px)}
+  .wordmark span{display:block;font-family:var(--sans);font-weight:300;font-size:clamp(46px,15vw,212px);letter-spacing:.005em;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(240,232,218,.2);transform:translateY(16%);user-select:none}
+  .to-top{letter-spacing:.16em;color:#a09889}
+  .to-top:hover{color:var(--accent)}
+
+  footer{padding:40px clamp(18px,5vw,52px) 58px;font-size:11px;letter-spacing:.18em;color:#6c655b;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:100;display:none;background:rgba(7,6,5,.95);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:clamp(14px,4vw,56px)}
+  .lb.on{display:flex}
+  .lb video{max-width:min(1100px,94vw);max-height:80vh;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .lb .close{position:absolute;top:20px;right:24px;font-size:26px;color:#fff;opacity:.6;cursor:pointer;line-height:1}
+  .lb .close:hover{opacity:1}
+  .lb .cap{position:absolute;bottom:20px;left:0;right:0;text-align:center;font-size:11.5px;letter-spacing:.2em;color:#9d968b}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+</style>
 </head>
 <body>
-<div class="grain" aria-hidden="true"></div>
-<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-<header class="site-header" id="siteHeader">
-  <a class="brand" href="#top" aria-label="回到顶部">
-    <span class="brand-mark">VL</span>
-    <span class="brand-text">刘心语 <em>Violet Liu</em></span>
-  </a>
-  <nav class="nav" id="nav" aria-label="主导航">
-    <a href="#player">作品集</a>
-    <a href="#works">精选作品</a>
-    <a href="#about">关于我</a>
-    <a href="#contact">更多</a>
-  </nav>
-  <a class="header-cta" href="https://pan.baidu.com/s/12vghuM_S1L7BwVZSJCaRzw?pwd=hybv" target="_blank" rel="noopener noreferrer">
-    <span>完整作品集</span>
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-  <button class="nav-toggle" id="navToggle" aria-label="展开菜单" aria-expanded="false" aria-controls="nav">
-    <span></span><span></span>
-  </button>
-</header>
+<nav class="nav">
+  <div class="mark">刘心语 · 作品集</div>
+  <div class="links">
+    <a href="#directing">导演</a>
+    <a href="#feature">长片</a>
+    <a href="#producing">制片</a>
+    <a href="#development">编导与策划</a>
+    <a href="#post">后期与声音</a>
+    <a href="#full">完整正片</a>
+    <a href="#about">关于</a>
+  </div>
+</nav>
 
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="wrap hero-inner">
-      <div class="hero-eyebrow"><span class="live-dot" aria-hidden="true"></span> PORTFOLIO 2027 <span class="sep">/</span> 影视制片 · 后期 · 国际发行</div>
-      <h1 class="hero-title">刘心语<span class="hero-title-en">Violet&nbsp;Liu</span></h1>
-      <p class="hero-role">影视制片 <i>/</i> 后期统筹 <i>/</i> 国际发行</p>
-      <p class="hero-desc">中国传媒大学新闻与传播硕士（2027 届），研究方向为新媒体视听传播与互动影视。从前期筹备、现场执行到后期交付与国际电影节协作，参与 5 部短片及长片项目。</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#player">
-          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4.5v9l7.5-4.5L6 4.5z" fill="currentColor"/></svg>
-          观看作品集
-        </a>
-        <a class="btn btn-ghost" href="https://pan.baidu.com/s/12vghuM_S1L7BwVZSJCaRzw?pwd=hybv" target="_blank" rel="noopener noreferrer">
-          简历与完整作品
-          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <dl class="hero-stats">
-        <div><dt>05</dt><dd>代表作品</dd></div>
-        <div><dt>03</dt><dd>影视机构实习</dd></div>
-        <div><dt>02</dt><dd>届平遥国际电影展</dd></div>
-      </dl>
-    </div>
-    <div class="filmstrip" aria-hidden="true"></div>
-  </section>
-
-  <!-- PLAYER -->
-  <section class="player-section" id="player">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="section-index">00 <i>/</i> SHOWREEL</span>
-        <span class="section-note"><span class="tag-demo">占位影片</span> 全部为 1080p 公开授权测试片：第 1 项完整影片，第 2–5 项为 20 秒片段；非本人作品</span>
-      </div>
-
-      <div class="player-shell">
-        <div class="player-frame" id="playerFrame">
-          <video id="video" poster="assets/poster-01.jpg" preload="metadata" playsinline webkit-playsinline>
-            <source id="srcMp4" src="https://github.com/violet-xinyu/violet-xinyu.github.io/releases/download/video-test-v1/big-buck-bunny-1080p.mp4" type="video/mp4">
-            您的浏览器不支持 HTML5 视频播放。
-          </video>
-          <div class="player-vignette" aria-hidden="true"></div>
-
-          <div class="player-topbar" aria-hidden="true">
-            <span class="rec"><i></i> NOW PLAYING</span>
-            <span id="playerTc">TC 00:00:00:00</span>
-          </div>
-
-          <button class="big-play" id="bigPlay" aria-label="播放视频">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5.5v13l10-6.5-10-6.5z" fill="currentColor"/></svg>
-          </button>
-
-          <div class="controls" id="controls">
-            <button class="ctrl" id="playBtn" aria-label="播放">
-              <svg class="ic-play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5.5v13l10-6.5-10-6.5z" fill="currentColor"/></svg>
-              <svg class="ic-pause" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5h3v14H8V5zm5 0h3v14h-3V5z" fill="currentColor"/></svg>
-            </button>
-            <span class="time" id="curTime">00:00</span>
-            <div class="progress" id="progress" role="slider" tabindex="0" aria-label="播放进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-              <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-              <div class="progress-thumb" id="progressThumb"></div>
-            </div>
-            <span class="time" id="durTime">00:00</span>
-            <button class="ctrl" id="muteBtn" aria-label="静音">
-              <svg class="ic-vol" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-              <svg class="ic-muted" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M17 9l5 6m0-6l-5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            </button>
-            <input class="volume" id="volume" type="range" min="0" max="1" step="0.05" value="1" aria-label="音量">
-            <button class="ctrl rate" id="rateBtn" aria-label="播放速度">1.0×</button>
-            <button class="ctrl" id="fsBtn" aria-label="全屏">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
-        </div>
-
-        <div class="player-caption">
-          <div class="cap-main">
-            <span class="cap-index" id="capIndex">01</span>
-            <div>
-              <h3 id="capTitle">《Play Dead》</h3>
-              <p id="capMeta">2026 · 剧情短片 · 4 min · 制片 / 导演助理</p>
-            </div>
-          </div>
-          <p class="cap-award" id="capAward">法国 La CineFabrique 大学考试入围作品</p>
-        </div>
-
-        <div class="player-fallback">
-          <div class="fallback-text">
-            <strong>播放不流畅？</strong>
-            <span>测试片由 GitHub Releases 托管（第 1 项完整 1080p，第 2–5 项为 20 秒高清片段）。完整正片见飞书云盘，作品集与简历见百度网盘（提取码 <code>hybv</code>）。</span>
-          </div>
-          <div class="fallback-actions">
-            <a class="fallback-btn" href="https://ecnilyw8pk2d.feishu.cn/drive/folder/MRJ0f18bflj34ldE61oci5Pcnkb?from=from_copylink" target="_blank" rel="noopener noreferrer">
-              飞书云盘 · 完整正片
-              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a class="fallback-btn is-secondary" href="https://pan.baidu.com/s/12vghuM_S1L7BwVZSJCaRzw?pwd=hybv" target="_blank" rel="noopener noreferrer">
-              百度网盘 · 作品集与简历
-              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WORKS -->
-  <section class="works" id="works">
-    <div class="wrap">
-      <div class="section-intro">
-        <div>
-          <span class="section-index">01 <i>/</i> SELECTED WORKS</span>
-          <h2>精选作品</h2>
-        </div>
-        <p>五部代表作品，覆盖剧情、科幻、纪录片与 AIGC 影像。点击任意作品即可在上方播放器中切换。</p>
-      </div>
-      <div class="works-grid" id="worksGrid"></div>
-      <p class="works-footnote">说明：作品名称、年份、类型、时长、职责及获奖信息为作品介绍；当前播放的视频与封面为公开授权的测试素材，并非对应作品。第 1 项为完整影片，第 2–5 项为 20 秒 1080p 片段，播放器进度条显示测试文件的实际时长。测试素材来自《Big Buck Bunny》Sunflower 版（CC BY 3.0，© Blender Foundation；Sunflower 重渲染版 © 2013 Janus Bager Kristensen），片段及封面由原片截取，视频转为 H.264 / AAC。</p>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="wrap">
-      <div class="section-intro">
-        <div>
-          <span class="section-index">02 <i>/</i> ABOUT &amp; EXPERIENCE</span>
-          <h2>关于我</h2>
-        </div>
-        <p>影视项目全流程执行与跨团队协同，是我的日常，也是我最想带进下一个剧组的能力。</p>
-      </div>
-
-      <div class="about-overview">
-        <p class="about-lead">熟悉影视项目从前期筹备、人员招募、场地与设备协调，到现场执行、后期跟进的完整流程。</p>
-        <p class="about-body">具备短片制片执行、后期跟进及国际电影节协作经验；能在高强度拍摄节奏下处理现场突发问题、协调跨团队沟通，并可用英文完成邮件与现场对接。目前于视幻文化 Parallax Films 参与长片国际发行工作。</p>
-      </div>
-
-      <div class="about-sections">
-        <section class="about-block" aria-labelledby="experienceTitle">
-          <h3 class="sub-head" id="experienceTitle">实习与项目经历<span>EXPERIENCE</span></h3>
-          <ul class="timeline">
-            <li><span class="tl-date">2026.07 — 至今</span><div><strong>视幻文化 Parallax Films · 长片国际发行助理</strong><p>电影节报名与物料交付、DCP / 预告片 / 海报 / 字幕核对，英文邮件对接海外电影节及买家</p></div></li>
-            <li><span class="tl-date">2025.12 — 2026.02</span><div><strong>浙江华策影视 · 后期制片助理</strong><p>跟进剪辑、调色、声音及特效流程，独立对接外部合作方，负责素材与成片版本归档</p></div></li>
-            <li><span class="tl-date">2025.01 — 2025.12</span><div><strong>万达影视传媒（儒意电影）· 制片助理</strong><p>选题挖掘与剧本 IP 评估、立项报审报奖；金鸡电影创投大会与海浪电影周项目评审支持</p></div></li>
-            <li><span class="tl-date">2024 / 2025</span><div><strong>第八、九届平遥国际电影展 · 内容及媒体公关支持</strong><p>23 场新闻发布会现场拍摄与素材回传、官方微博核心文案策划，连续两届获评优秀志愿者</p></div></li>
-          </ul>
-        </section>
-        <section class="about-block" aria-labelledby="educationTitle">
-          <h3 class="sub-head" id="educationTitle">教育背景<span>EDUCATION</span></h3>
-          <ul class="timeline">
-            <li>
-              <span class="tl-date">2024.09 — 2027.06</span>
-              <div><strong>中国传媒大学 · 新闻与传播 硕士</strong><p>研究方向：新媒体视听传播、互动影视</p></div>
-            </li>
-            <li>
-              <span class="tl-date">2026.02 — 2026.06</span>
-              <div><strong>中国台湾艺术大学 · 电影学系 交换生</strong><p>修读电影专题田野调查、剧本写作、电影表演；参与国际团队短片创作，任制片兼导演助理</p></div>
-            </li>
-            <li>
-              <span class="tl-date">2020.09 — 2024.06</span>
-              <div><strong>浙江传媒学院 · 广播电视学 本科</strong><p>曾任校新闻社团负责人；毕业纪录片《GOAL! 蒲公英少年》入围北京国际电影节·大学生电影节原创单元</p></div>
-            </li>
-          </ul>
-        </section>
-        <section class="about-block" aria-labelledby="capabilitiesTitle">
-          <h3 class="sub-head" id="capabilitiesTitle">专业能力<span>CAPABILITIES</span></h3>
-          <div class="skills">
-            <div class="skill"><span class="skill-num">01</span><div><strong>全流程制片</strong><p>前期调研、方案筹备、通告排期、场地与设备协调、人员安排、预算报销、现场调度</p></div></div>
-            <div class="skill"><span class="skill-num">02</span><div><strong>拍摄协调与后期跟进</strong><p>跨部门及外部供应商对接、进度与版本管理，可独立负责小型项目全流程</p></div></div>
-            <div class="skill"><span class="skill-num">03</span><div><strong>内容项目执行</strong><p>短片及活动类项目执行经验，适应出差与高强度拍摄节奏</p></div></div>
-            <div class="skill"><span class="skill-num">04</span><div><strong>语言能力</strong><p>中文（母语）；英文工作沟通流利，可用于邮件及现场对接</p></div></div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- FOOTER -->
-<footer id="contact">
-  <div class="wrap">
-    <div class="footer-top">
-      <div>
-        <span class="section-index">03 <i>/</i> PORTFOLIO</span>
-        <h2 class="footer-title">完整作品与简历<br>都在这里<span class="period">.</span></h2>
-      </div>
-      <div class="footer-contact">
-        <div class="footer-entries">
-          <a class="entry-card entry-primary" href="https://ecnilyw8pk2d.feishu.cn/drive/folder/MRJ0f18bflj34ldE61oci5Pcnkb?from=from_copylink" target="_blank" rel="noopener noreferrer">
-            <span class="entry-label">完整正片 <i>/</i> FULL FILMS</span>
-            <span class="entry-title">飞书云盘 · 完整正片</span>
-            <span class="entry-desc">作品成片在线观看，播放不流畅时可跳转</span>
-            <span class="entry-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-          <a class="entry-card" href="https://pan.baidu.com/s/12vghuM_S1L7BwVZSJCaRzw?pwd=hybv" target="_blank" rel="noopener noreferrer">
-            <span class="entry-label">作品集与简历 <i>/</i> RESUME</span>
-            <span class="entry-title">百度网盘 · 作品集与简历</span>
-            <span class="entry-desc">提取码 <code>hybv</code></span>
-            <span class="entry-arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-watermark" aria-hidden="true">VIOLET LIU</div>
-    <div class="footer-bottom">
-      <span>© 2026 刘心语 Violet Liu · 影视制片作品集</span>
-      <span>中国传媒大学 · 2027 届</span>
-      <a href="#top">回到顶部 ↑</a>
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="kicker">Portfolio 2026</div>
+    <h1>纪录片 · 剧情片<br><em>长片企划</em></h1>
+    <p class="sub">中国传媒大学新闻与传播硕士，浙江传媒学院广播电视学本科，台湾艺术大学电影学系交换。导演、编导、制片都在做——因为一个片子从选题到交付，我想全程在场。</p>
+    <div class="meta">
+      <span>刘心语 / VIOLET LIU</span>
+      <span>导演 · 编导 · 制片</span>
+      <span>北京 / 杭州</span>
     </div>
   </div>
-</footer>
+  <div class="scroll-hint">SCROLL</div>
+</header>
 
-<script src="app.js"></script>
+<!-- 01 导演 -->
+<section id="directing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="left"><span class="num">01</span><h2>导演作品</h2><span class="en">Directing</span></div>
+      <div class="note">纪录片 / 短视频<br>点击封面播放 20 秒预览</div>
+    </div>
+    <div class="grid">
+
+      <article class="film reveal" data-src="assets/videos/t-punk.mp4" data-cap="无常行者 · 朋克去朝拜 / 2026">
+        <div class="thumb">
+          <img src="assets/posters/punk-pilgrim.jpg" alt="无常行者 · 朋克去朝拜">
+          <span class="badge kind">纪录 · 概念片</span>
+          <span class="badge dur">1′11″</span>
+          <span class="play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+        </div>
+        <div class="film-body"><span class="idx">01</span><div>
+          <h3>无常行者 · 朋克去朝拜</h3>
+          <div class="role">导演 / 摄影 · 2026</div>
+          <p class="desc">纪录长片《无常行者：纹身与佛光》的概念影像。四十岁的朋克、厂牌主理人，也是虔诚的佛教徒，他准备用磕长头的方式，从北京一路去拉萨。</p>
+        </div></div>
+      </article>
+
+      <article class="film reveal" data-src="assets/videos/t-disabled.mp4" data-cap="残障直播间 / 2023">
+        <div class="thumb">
+          <img src="assets/posters/disabled-livestream.jpg" alt="残障直播间">
+          <span class="badge kind">微纪录片</span>
+          <span class="badge dur">3′59″</span>
+          <span class="play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+        </div>
+        <div class="film-body"><span class="idx">02</span><div>
+          <h3>残障直播间</h3>
+          <div class="role">导演 / 后期 · 2023</div>
+          <p class="desc">浙江特殊教育职业学院的两位残障主播，把镜头对准自己。他们不想要同情，只想被正常地看见。</p>
+          <div class="award">新华网「我们的向往」短视频大赛 优秀奖 · 第八届浙江省大学生新闻节 一等奖</div>
+        </div></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 02 长片企划（专题） -->
+<section id="feature">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="left"><span class="num">02</span><h2>长片企划</h2><span class="en">Feature</span></div>
+      <div class="note">本科毕业作品 · 专题页<br>内含四支不同功能的片花</div>
+    </div>
+
+    <a class="feature reveal" href="dandelion.html">
+      <img src="assets/posters/dandelion-goal.jpg" alt="GOAL! 蒲公英少年">
+      <div class="veil"></div>
+      <div class="txt">
+        <div class="tag">Documentary Feature · 2025 · 20′50″</div>
+        <h3>GOAL! 蒲公英少年</h3>
+        <p>大山深处的一所希望小学，足球是孩子们去往城市的一道「窄门」。几个孩子，几种家庭，一个夏天。</p>
+        <div class="go">进入专题 <span>→</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- 03 制片 -->
+<section id="producing" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="left"><span class="num">03</span><h2>制片作品</h2><span class="en">Producing</span></div>
+      <div class="note">国际联合摄制 / 独立短片<br>剧组搭建 · 现场统筹 · 后期支持</div>
+    </div>
+    <div class="grid">
+
+      <article class="film reveal" data-src="assets/videos/t-playdead.mp4" data-cap="Play Dead / 2026">
+        <div class="thumb">
+          <img src="assets/posters/play-dead.jpg" alt="Play Dead">
+          <span class="badge kind">独立短片</span>
+          <span class="badge dur">3′40″</span>
+          <span class="play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+        </div>
+        <div class="film-body"><span class="idx">03</span><div>
+          <h3>Play Dead</h3>
+          <div class="role">制片 / 导演助理 · 2026</div>
+          <p class="desc">与中、法、韩、瑞典创作者共同完成的独立短片，讲一个东亚家庭的告别。负责剧组搭建、演员招募、场地与器材统筹、拍摄通告与现场执行，并协助精剪。</p>
+          <div class="award">通过法国 La CinéFabrique 第一轮考核</div>
+        </div></div>
+      </article>
+
+      <article class="film reveal" data-src="assets/videos/t-onetake.mp4" data-cap="愷 · 一镜到底版 / 2026">
+        <div class="thumb">
+          <img src="assets/posters/one-take.jpg" alt="愷 一镜到底版">
+          <span class="badge kind">剧情短片</span>
+          <span class="badge dur">7′11″</span>
+          <span class="play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+        </div>
+        <div class="film-body"><span class="idx">04</span><div>
+          <h3>愷 · 一镜到底版</h3>
+          <div class="role">制片 / 现场调度 · 2026</div>
+          <p class="desc">台湾艺术大学电影学系交换期间参与的国际团队短片。两个人的一个下午，全片由一个长镜头完成，没有剪辑可以救场。</p>
+        </div></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 04 编导与策划 -->
+<section id="development">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="left"><span class="num">04</span><h2>编导与策划</h2><span class="en">Writing &amp; Development</span></div>
+      <div class="note">长片提案 · IP 运营 · 田野研究<br>从选题到可视化的完整推演</div>
+    </div>
+
+    <div class="decks">
+      <article class="deck reveal">
+        <div class="no">A / 01</div>
+        <div>
+          <h3>无常行者：纹身与佛光</h3>
+          <span class="en-title">The Impermanent Walker · 纪录长片提案</span>
+        </div>
+        <div>
+          <p class="desc">80 分钟人物纪录片提案。花臂纹身与佛前长头，反差背后是一个四十岁男人对信仰、争议与家人的回答。含项目概况、人物关系、拍摄脚本、影像风格与发行渠道。</p>
+          <div class="tags"><span>导演 / 策划</span><span>2025–2026</span><span>提案 34 页</span></div>
+        </div>
+      </article>
+
+      <article class="deck reveal">
+        <div class="no">A / 02</div>
+        <div>
+          <h3>HUG-Panda 哈哈</h3>
+          <span class="en-title">AIGC 熊猫 IP 社交媒体运营策划案</span>
+        </div>
+        <div>
+          <p class="desc">从海外社媒的熊猫内容数据出发，完成竞品分析、内容使命、IP 人设与运营规划，为一隻由 AIGC 生成的熊猫设计可持续的账号体系与内容线。</p>
+          <div class="tags"><span>内容策划</span><span>AIGC</span><span>2025</span></div>
+        </div>
+      </article>
+
+      <article class="deck reveal">
+        <div class="no">A / 03</div>
+        <div>
+          <h3>無體溫關係：日租對象 4.0</h3>
+          <span class="en-title">Rent-a-Companion · 田野研究提案</span>
+        </div>
+        <div>
+          <p class="desc">以「出租男女友」为切口，讨论当代年轻人的亲密关系、被标价的情感与法律灰色地带。含选题缘起、田野方法与期中规划，四人小组共同完成。</p>
+          <div class="tags"><span>小组提案</span><span>田野研究</span><span>2026</span></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="words" style="margin-top:clamp(24px,4vw,42px)">
+      <article class="card reveal">
+        <span class="type">Data Journalism</span>
+        <h3>乌镇大幕十年：华语戏剧节如何走向青年与世界</h3>
+        <p>以乌镇戏剧节十年为线索的数据新闻，梳理剧目、观众与城市之间的变化。小组作品，我参与选题、数据搜集与可视化排版。</p>
+        <div class="foot">2023 · 五人小组 ｜ <a href="https://mp.weixin.qq.com/s/Z6Fvsdv-zBxvxKQYAtuz7Q" target="_blank" rel="noopener">阅读全文 ↗</a></div>
+      </article>
+      <article class="card reveal">
+        <span class="type">Other Credits</span>
+        <h3>《奔涌入海·北外滩》《AI 牡丹亭》</h3>
+        <p>前者为澎湃新闻视觉中心的多媒体专题，我负责策划与执行，获第十四届上海市摄影艺术展多媒体类金奖；后者为 AIGC 短片，我担任制作与后期，获北京大学第四届东亚古籍数字人文国际论坛优秀典藏活化奖。</p>
+        <div class="foot">2022 / 2024 · 策划执行 · 制作后期</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 05 后期与声音 -->
+<section id="post">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="left"><span class="num">05</span><h2>后期与声音</h2><span class="en">Post-production &amp; Sound</span></div>
+      <div class="note">剪辑 · 航拍 · 节目包装<br>能自己收尾的人，才敢接前面的活</div>
+    </div>
+    <div class="grid">
+
+      <article class="film reveal" data-src="assets/videos/t-rookie.mp4" data-cap="菜鸟快跑 / 2024">
+        <div class="thumb">
+          <img src="assets/posters/rookie-run.jpg" alt="菜鸟快跑">
+          <span class="badge kind">航拍创意</span>
+          <span class="badge dur">2′18″</span>
+          <span class="play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+        </div>
+        <div class="film-body"><span class="idx">05</span><div>
+          <h3>菜鸟快跑</h3>
+          <div class="role">航拍 / 剪辑 · 2024</div>
+          <p class="desc">以无人机为主视角完成的创意短片。城市天际线、圆形广场与水岸被同一条运动线串起来，节奏全在剪辑台上。</p>
+        </div></div>
+      </article>
+
+      <article class="film portrait reveal" data-src="assets/videos/t-newyear.mp4" data-cap="年味 / 读嘉新闻 / 2026">
+        <div class="thumb">
+          <img src="assets/posters/newyear-vlog.jpg" alt="年味">
+          <span class="badge kind">竖屏短视频</span>
+          <span class="badge dur">1′11″</span>
+          <span class="play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+        </div>
+        <div class="film-body"><span class="idx">06</span><div>
+          <h3>年味</h3>
+          <div class="role">编导 / 剪辑 · 为「读嘉新闻」制作</div>
+          <p class="desc">用「冲、割、抖、炒、调、翻」六个动词拆解一桌年夜饭。食物是年味的载体，动作才是节奏。</p>
+        </div></div>
+      </article>
+
+      <article class="film reveal" data-src="assets/videos/t-lovetalk.mp4" data-cap="恋爱谈谈谈 / 2022">
+        <div class="thumb">
+          <img src="assets/posters/love-talk.jpg" alt="恋爱谈谈谈">
+          <span class="badge kind">广播节目</span>
+          <span class="badge dur">16′36″</span>
+          <span class="play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+        </div>
+        <div class="film-body"><span class="idx">07</span><div>
+          <h3>恋爱谈谈谈</h3>
+          <div class="role">策划 / 包装 · 2022</div>
+          <p class="desc">校园情感谈话节目，手绘粉笔风格的视觉包装与声音设计，每周二、四 17:30 播出。从选题、台本到成片后期独立完成。</p>
+        </div></div>
+      </article>
+
+      <article class="card reveal" style="align-self:stretch">
+        <span class="type">Tools</span>
+        <h3>后期与设备</h3>
+        <p>Adobe Premiere Pro、剪映；索尼 / 佳能相机、大疆稳定器与航拍机、Tricaster 导播系统与直播推流。华策影视后期制片助理任内，跟进剪辑、调色、声音与特效的整条流程，管理素材与成片版本归档。</p>
+        <div class="foot">2025.12 – 2026.02 · 浙江华策影视</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 06 奖项 -->
+<section id="awards">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="left"><span class="num">06</span><h2>获奖与展映</h2><span class="en">Awards &amp; Selection</span></div>
+      <div class="note">电影节 · 学科竞赛 · 馆藏</div>
+    </div>
+    <div class="awards">
+      <div class="award-row reveal"><span class="yr">2025</span><div><span class="a-name">第 32 届北京国际电影节 · 大学生电影节 原创单元 入围</span><span class="a-work">《GOAL! 蒲公英少年》· 策划 / 编导</span></div></div>
+      <div class="award-row reveal"><span class="yr">2025</span><div><span class="a-name">广州市图书馆 馆藏</span><span class="a-work">《GOAL! 蒲公英少年》</span></div></div>
+      <div class="award-row reveal"><span class="yr">2023</span><div><span class="a-name">新华网「我们的向往」短视频大赛 优秀奖</span><span class="a-work">《残障直播间》· 导演 / 后期</span></div></div>
+      <div class="award-row reveal"><span class="yr">2023</span><div><span class="a-name">第八届浙江省大学生新闻节 一等奖</span><span class="a-work">《残障直播间》</span></div></div>
+      <div class="award-row reveal"><span class="yr">2023</span><div><span class="a-name">第十四届上海市摄影艺术展 多媒体类 金奖</span><span class="a-work">《奔涌入海·北外滩》· 策划 / 执行</span></div></div>
+      <div class="award-row reveal"><span class="yr">2024</span><div><span class="a-name">北京大学第四届东亚古籍数字人文国际论坛 优秀典藏活化奖</span><span class="a-work">AIGC 短片《AI 牡丹亭》· 制作 / 后期</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 完整正片与资料 -->
+<section id="full" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="statement reveal">
+      <div>
+        <div class="label">07 / FULL FILMS</div>
+        <h2>完整作品与简历<br>都在这里<span class="dot">.</span></h2>
+        <p class="statement-note">站内是 20 秒预览片段。纪录长片与短片的完整版本、PDF 作品集与最新简历，分别放在下面两个地方，需要什么直接取。</p>
+      </div>
+      <div class="entries">
+        <a class="entry" href="https://ecnilyw8pk2d.feishu.cn/drive/folder/MRJ0f18bflj34ldE61oci5Pcnkb?from=from_copylink" target="_blank" rel="noopener">
+          <span class="lbl">飞书云盘 / FULL FILMS</span>
+          <span class="ttl">完整正片</span>
+          <span class="sub">纪录长片与短片全片，按项目分类 · 需权限可邮件索取</span>
+          <span class="arr">→</span>
+        </a>
+        <a class="entry" href="https://pan.baidu.com/s/12vghuM_S1L7BwVZSJCaRzw?pwd=hybv" target="_blank" rel="noopener">
+          <span class="lbl">百度网盘 / RESUME</span>
+          <span class="ttl">作品集与简历</span>
+          <span class="sub">PDF 作品集 · 简历 · 高清海报　提取码 hybv</span>
+          <span class="arr">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 关于 -->
+<section id="about">
+  <div class="wrap about">
+    <div class="about-grid">
+      <div class="reveal">
+        <h2>既懂<em>开发制作</em>，<br>也懂内容策划与媒体传播。</h2>
+        <p>在万达影业评估过四十余个剧本，在华策影视跟过后期的每一条时间线，也在片场做过制片主任和导演助理。这些经历让我在写提案时知道钱和周期在哪里，在拍摄现场知道人会出什么问题，在剪辑台上知道什么可以舍弃。</p>
+        <div class="cred">
+          <div>
+            <dt>EDUCATION</dt>
+            <dd>中国传媒大学 新闻与传播 硕士　2024 – 2026<br>浙江传媒学院 广播电视学 本科　2020 – 2024<br>台湾艺术大学 电影学系 交换　2026 春</dd>
+          </div>
+          <div>
+            <dt>EXPERIENCE</dt>
+            <dd>万达影业 制片助理（开发 / IP 评估）　2025<br>华策影视 后期制片助理　2025 – 2026<br>平遥国际电影展 · 海浪电影周 · 金鸡创投　2024 – 2025</dd>
+          </div>
+        </div>
+      </div>
+      <dl class="contact reveal">
+        <dt>NAME</dt><dd>刘心语 Violet Liu</dd>
+        <dt>FOCUS</dt><dd>纪录片 / 剧情短片 / 长片企划 / 制片</dd>
+        <dt>EMAIL</dt><dd>1298486843@qq.com</dd>
+        <dt>PHONE</dt><dd>18737114990</dd>
+        <dt>BASE</dt><dd>北京 · 杭州</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="wordmark" aria-hidden="true"><span>VIOLET LIU</span></div>
+
+  <footer id="bottom">
+    <span>© 2026 刘心语 Violet Liu · 影视作品集</span>
+    <span>Directing · Producing · Development · Post</span>
+    <a href="#top" class="to-top">回到顶部 ↑</a>
+  </footer>
+</section>
+
+<div class="lb" id="lb">
+  <span class="close" id="lbClose">×</span>
+  <video id="lbVideo" controls playsinline></video>
+  <div class="cap" id="lbCap"></div>
+</div>
+
+<script>
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const lb=document.getElementById('lb'), v=document.getElementById('lbVideo'), cap=document.getElementById('lbCap');
+  document.querySelectorAll('.film[data-src]').forEach(f=>{
+    f.addEventListener('click',()=>{
+      v.src=f.dataset.src; cap.textContent=f.dataset.cap+' · 20 秒预览';
+      lb.classList.add('on'); v.play().catch(()=>{});
+    });
+  });
+  function closeLb(){ lb.classList.remove('on'); v.pause(); v.removeAttribute('src'); v.load(); }
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  lb.addEventListener('click',e=>{ if(e.target===lb) closeLb(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLb(); });
+</script>
 </body>
 </html>
